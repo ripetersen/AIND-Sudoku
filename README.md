@@ -3,11 +3,16 @@
 
 # Question 1 (Naked Twins)
 Q: How do we use constraint propagation to solve the naked twins problem?  
-A: *Student should provide answer here*
+A: The code loops over all "two-valued boxes", loops over the units that contain those boxes, loops over the peers in those units.  
+   If a peer is found with the same value as the box then the two values are removed from the other peers in that unit.  The
+   `reduce_puzzle` method is updated to call the `naked_twin` method thereby enforcing that constraint.
 
 # Question 2 (Diagonal Sudoku)
 Q: How do we use constraint propagation to solve the diagonal sudoku problem?  
-A: *Student should provide answer here*
+A: Additional units are added.   These units contain the boxes along the two diagonals. `unitlist` includes the two addtional units
+   and the maps `units` and `peers` are built the same way as before and therefore include the boxes from the two new units.  
+   The constraint methods: `eleminate`, `only_choice` and `naked_twin` apply the constraints to any unit we construct and 
+   therefore work to apply the constraints to the additional units without change.
 
 ### Install
 
